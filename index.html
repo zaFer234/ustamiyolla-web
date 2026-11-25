@@ -226,6 +226,41 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
 
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
+/* lansman şeridi */
+.launchbar{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;background:linear-gradient(90deg,#14915F,#1BAA70);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:9px 16px;text-align:center}
+.launchbar u{text-underline-offset:3px}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.hero .pills{display:flex;gap:8px;flex-wrap:wrap}
+/* lansman zaman çizelgesi */
+.phases{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch}
+@media (max-width:860px){.phases{grid-template-columns:1fr}.phases .arrow{transform:rotate(90deg);justify-self:center}}
+.phase{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:24px;position:relative}
+.phase.now{border-color:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 14%,transparent)}
+.phase .tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;padding:5px 10px;border-radius:999px;background:var(--bg-2);color:var(--muted)}
+.phase.now .tag{background:var(--ok-soft);color:var(--ok)}
+.phase .tag i{width:8px;height:8px;border-radius:50%;background:currentColor;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+.phase h3{font-size:22px;margin:12px 0 6px}
+.phase ul{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:9px}
+.phase li{display:flex;gap:9px;align-items:flex-start;font-size:15px}
+.phase li svg{width:18px;height:18px;margin-top:3px;color:var(--accent)}
+.phase.now li svg{color:var(--ok)}
+.phases .arrow{align-self:center;color:var(--muted);font-size:28px}
+.note{margin-top:18px;background:var(--soft);border-radius:16px;padding:14px 16px;font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
+.note svg{width:20px;height:20px;color:var(--accent);margin-top:2px}
+/* Usta Pro ve çark */
+.pro{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:860px){.pro{grid-template-columns:1fr}}
+.price{font-size:44px;font-weight:800;letter-spacing:-1.5px;margin:6px 0 2px}
+.price small{font-size:16px;color:var(--muted);font-weight:600;letter-spacing:0}
+.wheelwrap{position:relative;width:min(300px,78vw);aspect-ratio:1;margin:18px auto 10px}
+.wheel{position:absolute;inset:0;border-radius:50%;border:8px solid var(--accent);background:conic-gradient(from -36deg,#FCEBE3 0 72deg,#FFF6E5 72deg 144deg,#FCEBE3 144deg 216deg,#FFF6E5 216deg 288deg,#E4F5EC 288deg 360deg);transition:transform 3.4s cubic-bezier(.17,.84,.25,1);box-shadow:var(--shadow)}
+.wheel span{position:absolute;left:50%;top:50%;width:96px;margin-left:-48px;text-align:center;font-weight:800;font-size:12.5px;line-height:1.2;color:#141720}
+.wheel:after{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--accent);border:5px solid #fff}
+.wheelwrap .ptr{position:absolute;left:50%;top:-14px;margin-left:-13px;width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-top:24px solid var(--fg);z-index:2}
+.won{min-height:26px;text-align:center;font-weight:800;color:var(--ok)}
+.odds{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:14px;color:var(--muted);margin-top:12px}
+.odds b{color:var(--fg);font-weight:700}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 .modal{position:fixed;inset:0;background:rgba(10,12,16,.55);display:none;align-items:flex-end;justify-content:center;z-index:100;padding:16px}
 .modal.on{display:flex}
@@ -270,12 +305,14 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
   </defs>
 </svg>
 
+<a class="launchbar" href="#lansman"><svg class="i"><use href="#i-gift"/></svg>Lansman dönemi başladı: ustalardan hiç komisyon alınmıyor. <u>Detaylar</u></a>
 <nav class="top" id="top">
   <div class="wrap">
     <a class="brand" href="#"><img src="icon.png" alt="">Ustamı <b>Yolla</b></a>
     <div class="links">
       <a href="#nasil">Nasıl çalışır</a>
       <a href="#hizmetler">Hizmetler</a>
+      <a href="#lansman">Lansman</a>
       <a href="#fiyat">Fiyatlar</a>
       <a href="#usta">Usta ol</a>
       <a href="#sss">SSS</a>
@@ -287,7 +324,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
 <header class="hero">
   <div class="wrap">
     <div>
-      <span class="pill"><svg class="i"><use href="#i-pin"/></svg> İstanbul'un 39 ilçesinde</span>
+      <div class="pills"><span class="pill"><svg class="i"><use href="#i-pin"/></svg> İstanbul'un 39 ilçesinde</span><span class="pill ok"><svg class="i"><use href="#i-gift"/></svg> Lansman: komisyon yok</span></div>
       <h1>Evine belgeli usta,<br>fiyatı <span class="hl">önce sen</span> onayla.</h1>
       <p class="lead">Elektrikçi, tesisatçı, kombici, boyacı… Kimliği ve adli sicili kontrol edilmiş ustayı birkaç dokunuşla çağır. Usta keşiften sonra fiyatı yazar, sen onaylamadan iş başlamaz.</p>
       <div class="cta" id="indir-hero">
@@ -321,7 +358,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
     <div class="how">
       <div class="steps" id="steps">
         <button class="step on" data-s="0"><span class="n">1</span><span><h3>Ustanı seç</h3><p>İhtiyacını seç; puanlara, yorumlara, keşif ücretine ve rozetlere bakıp ustanı bul.</p><span class="bar"><i></i></span></span></button>
-        <button class="step" data-s="1"><span class="n">2</span><span><h3>Sorununu anlat</h3><p>Birkaç cümle yaz, istersen fotoğraf ekle, saatini seç. Usta kabul edince keşif ücreti kartından alınır.</p><span class="bar"><i></i></span></span></button>
+        <button class="step" data-s="1"><span class="n">2</span><span><h3>Sorununu anlat</h3><p>Birkaç cümle yaz, istersen fotoğraf ekle, saatini seç. Kart eklemen gerekmez; keşif ücretini usta geldiğinde ona ödersin.</p><span class="bar"><i></i></span></span></button>
         <button class="step" data-s="2"><span class="n">3</span><span><h3>Usta yola çıksın</h3><p>Ustanın yaklaştığını haritada gör, uygulamadan mesajlaş. Numaran ve adresin sadece ona, iş süresince görünür.</p><span class="bar"><i></i></span></span></button>
         <button class="step" data-s="3"><span class="n">4</span><span><h3>Fiyatı onayla, öde</h3><p>Usta keşiften sonra işçilik ve malzemeyi kalem kalem yazar. Sen onaylarsan başlar; sadece onayladığın tutarı ödersin, her ödeme kayıtlı.</p><span class="bar"><i></i></span></span></button>
       </div>
@@ -372,37 +409,76 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
     <div class="calc">
       <div class="box reveal">
         <h3>Müşteri olarak</h3>
-        <p class="muted">Keşif ücreti usta kabul edince alınır. İş bedelini keşiften sonra görürsün, onaylamazsan sadece keşif ödenir.</p>
+        <p class="muted">İş bedelini keşiften sonra görürsün, onaylamazsan sadece keşif ödenir. Dönemi seç, nasıl ödeyeceğini gör.</p>
         <div class="range"><label>Keşif ücreti <b id="cFeeV"></b></label><input type="range" id="cFee" min="0" max="1000" step="50" value="400"></div>
         <div class="range"><label>İşçilik + malzeme <b id="cWorkV"></b></label><input type="range" id="cWork" min="0" max="10000" step="100" value="1500"></div>
         <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-          <div class="toggle" id="cPromo"><button class="on" data-v="0">İndirimsiz</button><button data-v="1">İlk iş indirimi</button></div>
-          <div class="toggle" id="cPay"><button class="on" data-v="card">Kartla</button></div>
+          <div class="toggle" id="cPer"><button class="on" data-v="launch">Lansman dönemi</button><button data-v="comm">Komisyon dönemi</button></div>
+          <div class="toggle" id="cPromo" hidden><button class="on" data-v="0">İndirimsiz</button><button data-v="1">İlk iş indirimi</button></div>
         </div>
         <div class="lines" id="cLines"></div>
       </div>
       <div class="box reveal">
         <h3>Usta olarak</h3>
-        <p class="muted">Lansman döneminde hiç komisyon yok. Sonrasında sadece keşif ücretinden %25; işçilik ve malzemenin tamamı senin. Aylık Usta Pro ile hiç komisyon ödemezsin.</p>
+        <p class="muted">Lansman döneminde hiç komisyon yok. Sonrasında sadece keşif ücretinden %25; işçilik ve malzemenin tamamı senin. Usta Pro ile hiç komisyon ödemezsin.</p>
+        <div class="toggle" id="uMode" style="margin-bottom:14px"><button class="on" data-v="launch">Lansman</button><button data-v="comm">Komisyon dönemi</button><button data-v="pro">Usta Pro</button></div>
         <div class="range"><label>Keşif ücretin <b id="uFeeV"></b></label><input type="range" id="uFee" min="0" max="1000" step="50" value="400"></div>
         <div class="range"><label>İşçilik <b id="uLabV"></b></label><input type="range" id="uLab" min="0" max="10000" step="100" value="1000"></div>
         <div class="range"><label>Malzeme <b id="uMatV"></b></label><input type="range" id="uMat" min="0" max="10000" step="100" value="500"></div>
+        <div class="range"><label>Ayda kaç iş? <b id="uJobsV"></b></label><input type="range" id="uJobs" min="1" max="60" step="1" value="20"></div>
         <div class="lines" id="uLines"></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="usta" class="alt">
+<section id="lansman" class="alt">
+  <div class="wrap">
+    <div class="reveal center">
+      <span class="kicker">Lansman dönemi</span>
+      <h2>Şimdi katıl, komisyonsuz çalış.</h2>
+      <p class="sub">Ustamı Yolla yeni açıldı. İlk dönemde kimseden komisyon almıyoruz; komisyon başlamadan en az 30 gün önce herkese haber veriyoruz.</p>
+    </div>
+    <div class="phases reveal">
+      <div class="phase now">
+        <span class="tag"><i></i>Şu an</span>
+        <h3>Lansman dönemi</h3>
+        <p class="muted" style="margin:0;color:var(--muted)">Uygulamayı tanıyın, ustalar müşteri kazansın.</p>
+        <ul>
+          <li><svg class="i"><use href="#i-check"/></svg>Ustalardan hiçbir işte komisyon alınmaz.</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Müşteri kart eklemeden usta çağırır.</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Keşif ücreti ve onaylanan iş bedeli doğrudan ustaya ödenir.</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Her tutar uygulamada kayıtlı; sorun çıkarsa kayıt elinde.</li>
+        </ul>
+      </div>
+      <div class="arrow">→</div>
+      <div class="phase">
+        <span class="tag"><svg class="i"><use href="#i-clock"/></svg>En az 30 gün önce duyurulur</span>
+        <h3>Komisyon dönemi</h3>
+        <p class="muted" style="margin:0;color:var(--muted)">Bütün ödemeler uygulamada, güvence altında.</p>
+        <ul>
+          <li><svg class="i"><use href="#i-card"/></svg>Ödemeler sadece uygulamadan kartla; nakit yok.</li>
+          <li><svg class="i"><use href="#i-receipt"/></svg>Sadece keşif ücretinden %25 komisyon; işçilik ve malzeme ustanın.</li>
+          <li><svg class="i"><use href="#i-wallet"/></svg>Ustanın parası her Cuma banka hesabına.</li>
+          <li><svg class="i"><use href="#i-badge"/></svg>Usta Pro alan usta hiç komisyon ödemez.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note reveal"><svg class="i"><use href="#i-shield"/></svg><span>Lansman döneminde de ustaya sadece uygulamada onayladığın tutarı öde. Fazlası istenirse uygulamadaki Yardım bölümünden bize bildir.</span></div>
+  </div>
+</section>
+
+<section id="usta">
   <div class="wrap">
     <div class="band reveal">
       <div>
         <span class="kicker" style="color:#fff;opacity:.85">Ustalar için</span>
         <h2>İşini büyüt, müşteri aramakla uğraşma.</h2>
         <ul>
-          <li><svg class="i"><use href="#i-wallet"/></svg>Keşif ücretini kendin belirle. Kartlı işlerin parası her Cuma hesabında.</li>
+          <li><svg class="i"><use href="#i-wallet"/></svg>Keşif ücretini kendin belirle. Lansmanda müşteri sana doğrudan öder.</li>
           <li><svg class="i"><use href="#i-receipt"/></svg>Lansman döneminde komisyon yok; sonra sadece keşif ücretinden %25. İşçilik ve malzemenin tamamı senin.</li>
-          <li><svg class="i"><use href="#i-receipt"/></svg>Her ay 5 iş bitir, ücretsiz çark çevir: komisyonsuz ay, komisyonsuz işler, öne çıkma.</li>
+          <li><svg class="i"><use href="#i-gift"/></svg>Her ay 5 iş bitir, ücretsiz çark çevir: komisyonsuz ay, komisyonsuz işler, öne çıkma.</li>
+          <li><svg class="i"><use href="#i-star"/></svg>Aylık 300 ₺ Usta Pro ile komisyon dönemi başlasa da hiç komisyon ödeme.</li>
           <li><svg class="i"><use href="#i-clock"/></svg>Çalışma saatlerini ve ilçelerini sen seç, müsaitliğini tek dokunuşla aç kapat.</li>
           <li><svg class="i"><use href="#i-badge"/></svg>Uygulamadan iş yaptıkça "Güvenilir usta" rozeti al, listede üste çık.</li>
           <li><svg class="i"><use href="#i-gift"/></svg>Usta arkadaşını davet et, ilk işini bitirince ödül kazan.</li>
@@ -416,6 +492,38 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
   </div>
 </section>
 
+<section id="pro" class="alt">
+  <div class="wrap">
+    <div class="reveal center">
+      <span class="kicker">Ustalara özel</span>
+      <h2>Usta Pro ve aylık çark.</h2>
+      <p class="sub">Komisyon dönemi başladığında bile komisyonsuz çalışmanın iki yolu var.</p>
+    </div>
+    <div class="pro">
+      <div class="box reveal">
+        <h3>Usta Pro</h3>
+        <div class="price">300 ₺ <small>/ ay</small></div>
+        <p class="muted">30 gün boyunca hiçbir işinden komisyon kesilmez, keşif ücretinin tamamı senin.</p>
+        <ul class="odds" style="list-style:none;padding:0;grid-template-columns:auto 1fr;font-size:15px">
+          <li style="display:contents"><svg class="i" style="color:var(--ok);margin-top:4px"><use href="#i-check"/></svg><span>Otomatik yenilenmez, istediğin ay alırsın.</span></li>
+          <li style="display:contents"><svg class="i" style="color:var(--ok);margin-top:4px"><use href="#i-check"/></svg><span>Komisyon başlamadan alırsan 30 gün komisyonun başladığı gün saymaya başlar.</span></li>
+          <li style="display:contents"><svg class="i" style="color:var(--ok);margin-top:4px"><use href="#i-check"/></svg><span>Ayda 3–4 işin üstündeysen kendini öder; yukarıdaki hesaplayıcıda dene.</span></li>
+          <li style="display:contents"><svg class="i" style="color:var(--ok);margin-top:4px"><use href="#i-check"/></svg><span>Lansman döneminde komisyon olmadığı için gerekmez.</span></li>
+        </ul>
+      </div>
+      <div class="box reveal">
+        <h3>Aylık çark</h3>
+        <p class="muted">Bir ayda uygulamadan bitirdiğin her 5 iş için 1 ücretsiz çevirme hakkı. Her çevirme ödüllü. Aşağıdaki örnek çarkı dene:</p>
+        <div class="wheelwrap"><div class="ptr"></div><div class="wheel" id="wheel"></div></div>
+        <div class="won" id="won"></div>
+        <button class="btn" id="spinBtn" style="width:100%;justify-content:center">Örnek çarkı çevir</button>
+        <div class="odds" id="odds"></div>
+        <p class="muted" style="margin:10px 0 0;font-size:13px">Çark ücretsizdir, parayla çevrilmez. Ödüller nakde çevrilmez; kurallar Kullanım Koşulları'nda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="sss">
   <div class="wrap">
     <div class="reveal center">
@@ -423,10 +531,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent)}
       <h2>Aklındaki sorular.</h2>
     </div>
     <div class="faq reveal">
-      <details><summary>Keşif ücreti ne zaman alınır? <svg class="i"><use href="#i-plus"/></svg></summary><p>Usta talebini kabul ettiği anda kartından alınır. Usta kabul etmezse ya da sen usta yola çıkmadan iptal edersen hiçbir ücret ödemezsin, alınmışsa iade edilir.</p></details>
+      <details><summary>Lansman dönemi nedir, ne kadar sürecek? <svg class="i"><use href="#i-plus"/></svg></summary><p>Uygulamanın ilk dönemi. Bu dönemde ustalardan komisyon alınmaz, müşteri keşif ücretini ve onayladığı iş bedelini doğrudan ustaya öder; tutarlar uygulamada kayıtlı kalır. Komisyon dönemi başlamadan en az 30 gün önce uygulama içinden herkese bildirim gönderilir.</p></details>
+      <details><summary>Keşif ücretini ne zaman öderim? <svg class="i"><use href="#i-plus"/></svg></summary><p>Lansman döneminde usta geldiğinde doğrudan ustaya. Komisyon döneminde usta talebini kabul ettiği anda kartından alınır; usta yola çıkmadan iptal edersen iade edilir.</p></details>
       <details><summary>Fiyatı beğenmezsem ne olur? <svg class="i"><use href="#i-plus"/></svg></summary><p>Usta keşiften sonra fiyatı uygulamaya yazar. Onaylamazsan iş yapılmaz, sadece keşif ücreti ödenmiş olur.</p></details>
       <details><summary>Ustalar nasıl kontrol ediliyor? <svg class="i"><use href="#i-plus"/></svg></summary><p>Her ustanın kimliğini ve e-Devlet barkodlu adli sicil kaydını kontrol ediyoruz. Mesleki belgesi olanların belgesini, olmayanların yaptığı işlerin fotoğraflarını inceledikten sonra onay veriyoruz.</p></details>
       <details><summary>Ödemeyi nasıl yaparım? <svg class="i"><use href="#i-plus"/></svg></summary><p>Lansman döneminde keşif ücretini ve onayladığın iş bedelini doğrudan ustaya ödersin, tutarlar uygulamada kayıtlı kalır. Komisyon dönemi başlayınca bütün ödemeler uygulamadan kartla yapılır. Sadece uygulamada onayladığın tutarı öde.</p></details>
+      <details><summary>Usta Pro nedir? <svg class="i"><use href="#i-plus"/></svg></summary><p>Ustalar için aylık 300 ₺'lik paket. Paket süresince hiçbir işten komisyon kesilmez. Otomatik yenilenmez. Lansman döneminde komisyon olmadığı için gerekmez.</p></details>
+      <details><summary>Çark nasıl çalışır? <svg class="i"><use href="#i-plus"/></svg></summary><p>Usta bir ayda uygulamadan 5 iş bitirince 1 ücretsiz çevirme hakkı kazanır (10 işte 2, 15 işte 3…). Her çevirme ödüllüdür: 1 hafta listede öne çıkma, 3 ya da 5 iş komisyonsuz, 5 işte yarı komisyon veya 1 ay komisyonsuz. Lansmanda kazanılan komisyonsuz haklar saklanır, komisyon başlayınca kullanılır.</p></details>
       <details><summary>İşten sonra sorun çıkarsa? <svg class="i"><use href="#i-plus"/></svg></summary><p>Uygulamadan tamamlanan işlerde 90 gün içinde uygulamadan garanti talebi açabilirsin. Ekibimiz ustayla birlikte sorunu çözer.</p></details>
       <details><summary>Hangi bölgelerde hizmet veriyorsunuz? <svg class="i"><use href="#i-plus"/></svg></summary><p>İstanbul'un 39 ilçesinin tamamında. Uygulamada ilçeni seçince oraya giden ustaları görürsün.</p></details>
     </div>
@@ -530,7 +641,7 @@ const SCREENS = [
    <div class="a-photos"><div></div><div></div><div class="add">${ic('plus')}</div></div>
    <span class="a-muted">Ne zaman?</span>
    <div class="a-times"><span class="on">Hemen<br><small>~45 dk</small></span><span>Bugün<br><small>16:00</small></span><span>Yarın<br><small>10:00</small></span></div>
-   <div class="a-card"><div class="a-sum"><span>Keşif ücreti</span><b>400 ₺</b></div><div class="a-sum"><span>İlk iş indirimi</span><b style="color:#14915F">−60 ₺</b></div><div class="a-sum t"><span>Usta kabul edince çekilir</span><span>340 ₺</span></div></div>
+   <div class="a-card"><div class="a-sum"><span>Keşif ücreti</span><b>400 ₺</b></div><div class="a-sum t"><span>Usta geldiğinde ustaya</span><span>400 ₺</span></div><span class="a-muted" style="color:#14915F">${ic('gift')} Lansman dönemi · kart gerekmez</span></div>
    <div class="a-btn">Talebi gönder</div>`,
   // 3: usta yolda
   `<div class="a-eta">${ic('nav')}<div><b>Usta yolda</b><span style="opacity:.85">Konumu 1 dk önce güncellendi</span></div></div>
@@ -541,13 +652,13 @@ const SCREENS = [
   `<b style="font-size:15px">Ustanın fiyatı</b>
    <span class="a-muted">Mehmet Usta keşfi yaptı. Onaylarsan iş başlar.</span>
    <div class="a-card"><div class="a-sum"><span>İşçilik</span><b>900 ₺</b></div><div class="a-sum"><span>Sigorta kutusu (malzeme)</span><b>650 ₺</b></div><div class="a-sum"><span>Kablo (malzeme)</span><b>150 ₺</b></div><div class="a-sum t"><span>Ek tutar</span><span>1.700 ₺</span></div></div>
-   <span class="a-muted"><b style="color:#141720">İş bedelini nasıl ödeyeceksin?</b></span>
-   <div class="a-pay"><div class="on">${ic('card')} Kartla<br><span class="a-muted">•••• 0008</span></div></div>
+   <span class="a-muted"><b style="color:#141720">Ödeme</b></span>
+   <div class="a-pay" style="grid-template-columns:1fr"><div class="on">Doğrudan ustaya<br><span class="a-muted">Lansman dönemi · tutar kayıtlı</span></div></div>
    <div class="a-card" style="background:#FCEBE3;border-color:#FCEBE3"><span class="a-muted" style="color:#141720">${ic('shield')} Sadece uygulamada onayladığın tutarı öde. 90 gün güvence.</span></div>
    <div style="display:flex;gap:7px;margin-top:auto"><div class="a-btn gh" style="flex:1">Reddet</div><div class="a-btn" style="flex:2">Onayla, başlasın</div></div>`,
   // 5: tamamlandı
-  `<div style="text-align:center;margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:6px"><span class="a-av lg" style="background:#E4F5EC;color:#14915F">${ic('check')}</span><b style="font-size:16px">İş tamamlandı</b><span class="a-muted">İş bedeli kartından çekildi</span></div>
-   <div class="a-card"><div class="a-sum"><span>Keşif ücreti</span><span>340 ₺</span></div><div class="a-sum"><span>İş bedeli</span><span>1.700 ₺</span></div><div class="a-sum t"><span>Toplam</span><span>2.040 ₺</span></div></div>
+  `<div style="text-align:center;margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:6px"><span class="a-av lg" style="background:#E4F5EC;color:#14915F">${ic('check')}</span><b style="font-size:16px">İş tamamlandı</b><span class="a-muted">Ödemeyi ustaya yaptın, tutar kayıtlı</span></div>
+   <div class="a-card"><div class="a-sum"><span>Keşif ücreti</span><span>400 ₺</span></div><div class="a-sum"><span>İş bedeli</span><span>1.700 ₺</span></div><div class="a-sum t"><span>Toplam</span><span>2.100 ₺</span></div></div>
    <div class="a-card" style="align-items:center"><b>Mehmet Usta'yı puanla</b><div class="a-big">★★★★★</div><div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center"><span class="a-tag ac">Dakikti</span><span class="a-tag ac">Temiz çalıştı</span><span class="a-tag">Fiyatı uygundu</span></div></div>
    <div class="a-muted" style="text-align:center">${ic('badge')} 90 gün içinde garanti talebi açabilirsin</div>
    <div class="a-btn">Puanı gönder</div>`,
@@ -593,31 +704,51 @@ showCat(0);
 // hesaplayıcılar
 const $ = (id) => document.getElementById(id);
 const tog = (id, cb) => { const el = $(id); el.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; el.querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b)); cb(b.dataset.v); }); };
-let promo = 0, pay = 'card';
+let promo = 0, per = 'launch', umode = 'launch';
 function calcC() {
-  const fee = +$('cFee').value, work = +$('cWork').value;
-  const disc = promo ? Math.min(150, Math.round(fee * 0.15)) : 0;
+  const fee = +$('cFee').value, work = +$('cWork').value, launch = per === 'launch';
+  const disc = !launch && promo ? Math.min(150, Math.round(fee * 0.15)) : 0;
+  $('cPromo').hidden = launch;
   $('cFeeV').textContent = tl(fee); $('cWorkV').textContent = tl(work);
-  $('cLines').innerHTML = `<div><span>Keşif ücreti (usta kabul edince karttan)</span><span>${tl(fee)}</span></div>` +
+  $('cLines').innerHTML = `<div><span>Keşif ücreti (${launch ? 'usta gelince ustaya' : 'usta kabul edince karttan'})</span><span>${tl(fee)}</span></div>` +
     (disc ? `<div class="neg"><span>İlk iş indirimi</span><span>−${tl(disc)}</span></div>` : '') +
-    `<div><span>İş bedeli (${pay === 'card' ? 'iş bitince karttan' : 'ustaya nakit'})</span><span>${tl(work)}</span></div>` +
+    `<div><span>İş bedeli (${launch ? 'iş bitince ustaya' : 'iş bitince karttan'})</span><span>${tl(work)}</span></div>` +
     `<div class="neg"><span>Fiyatı reddedersen ödeyeceğin</span><span>${tl(fee - disc)}</span></div>` +
     `<div class="tot"><span>Toplam</span><b>${tl(fee - disc + work)}</b></div>`;
 }
 function calcU() {
-  const fee = +$('uFee').value, lab = +$('uLab').value, mat = +$('uMat').value;
-  const vc = Math.round(fee * 0.25), wc = 0;
-  $('uFeeV').textContent = tl(fee); $('uLabV').textContent = tl(lab); $('uMatV').textContent = tl(mat);
-  $('uLines').innerHTML = `<div><span>Müşteriden alınan</span><span>${tl(fee + lab + mat)}</span></div>` +
-    `<div class="neg"><span>Keşif komisyonu (%25, lansmandan sonra)</span><span>−${tl(vc)}</span></div>` +
-    `<div class="neg"><span>İşçilik komisyonu</span><span>0 ₺</span></div>` +
-    `<div class="neg"><span>Malzeme komisyonu</span><span>0 ₺</span></div>` +
-    `<div class="tot"><span>Sana kalan</span><b>${tl(fee + lab + mat - vc - wc)}</b></div>`;
+  const fee = +$('uFee').value, lab = +$('uLab').value, mat = +$('uMat').value, jobs = +$('uJobs').value;
+  const full = Math.round(fee * 0.25), vc = umode === 'comm' ? full : 0, gross = fee + lab + mat;
+  const label = umode === 'launch' ? 'Keşif komisyonu (lansmanda yok)' : umode === 'pro' ? 'Keşif komisyonu (Usta Pro ile yok)' : 'Keşif komisyonu (%25)';
+  $('uFeeV').textContent = tl(fee); $('uLabV').textContent = tl(lab); $('uMatV').textContent = tl(mat); $('uJobsV').textContent = jobs + ' iş';
+  const month = umode === 'pro' ? gross * jobs - 300 : (gross - vc) * jobs;
+  const save = full * jobs - 300;
+  $('uLines').innerHTML = `<div><span>Müşteriden alınan (iş başı)</span><span>${tl(gross)}</span></div>` +
+    `<div class="neg"><span>${label}</span><span>${vc ? '−' + tl(vc) : '0 ₺'}</span></div>` +
+    `<div class="neg"><span>İşçilik ve malzeme komisyonu</span><span>0 ₺</span></div>` +
+    `<div><span>İş başı sana kalan</span><span>${tl(gross - vc)}</span></div>` +
+    (umode === 'pro' ? `<div class="neg"><span>Usta Pro (aylık)</span><span>−300 ₺</span></div>` : '') +
+    `<div class="tot"><span>Ayda ${jobs} işte kazancın</span><b>${tl(month)}</b></div>` +
+    (umode !== 'launch' && fee > 0 ? `<div class="neg"><span>${save > 0 ? `Komisyon döneminde Usta Pro sana ayda ${tl(save)} kazandırır` : 'Bu iş sayısında Usta Pro almana gerek yok'}</span><span></span></div>` : '');
 }
 ['cFee', 'cWork'].forEach((id) => $(id).addEventListener('input', calcC));
-['uFee', 'uLab', 'uMat'].forEach((id) => $(id).addEventListener('input', calcU));
-tog('cPromo', (v) => { promo = +v; calcC(); }); tog('cPay', (v) => { pay = v; calcC(); });
+['uFee', 'uLab', 'uMat', 'uJobs'].forEach((id) => $(id).addEventListener('input', calcU));
+tog('cPromo', (v) => { promo = +v; calcC(); }); tog('cPer', (v) => { per = v; calcC(); }); tog('uMode', (v) => { umode = v; calcU(); });
 calcC(); calcU();
+
+// örnek çark (gerçek çark uygulamada, sunucuda döner)
+const PRIZES = [['1 ay<br>komisyonsuz', '1 ay komisyonsuz', 5], ['5 iş<br>komisyonsuz', '5 iş komisyonsuz', 15], ['1 hafta<br>öne çık', '1 hafta listede öne çıkma', 30], ['3 iş<br>komisyonsuz', '3 iş komisyonsuz', 25], ['5 işte yarı<br>komisyon', '5 işte yarı komisyon', 25]];
+const wheel = $('wheel');
+wheel.innerHTML = PRIZES.map(([s], i) => { const a = i * 72; return `<span style="transform:translate(0,-50%) rotate(${a}deg) translateY(calc(min(300px,78vw) * -0.29))">${s}</span>`; }).join('');
+$('odds').innerHTML = PRIZES.slice().sort((a, b) => b[2] - a[2]).map(([, l, p]) => `<b>${l}</b><span>%${p}</span>`).join('');
+let turn = 0;
+$('spinBtn').addEventListener('click', () => {
+  const btn = $('spinBtn'); if (btn.disabled) return;
+  let r = Math.random() * 100, i = 0; while (r >= PRIZES[i][2]) { r -= PRIZES[i][2]; i++; }
+  turn += 5; btn.disabled = true; $('won').textContent = '';
+  wheel.style.transform = `rotate(${turn * 360 - i * 72}deg)`;
+  setTimeout(() => { $('won').textContent = 'Kazandın: ' + PRIZES[i][1] + ' (örnek)'; btn.disabled = false; btn.textContent = 'Tekrar çevir'; }, 3500);
+});
 
 // görünür olunca beliren bölümler
 const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
