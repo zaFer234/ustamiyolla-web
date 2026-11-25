@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ustamı Yolla · Evine belgeli usta, fiyatı önce sen onayla</title>
+<meta name="description" content="İstanbul'da kimliği ve adli sicili kontrol edilmiş ustayı evine çağır. Fiyatı önce sen onayla, sadece onayladığını öde, 90 gün güvence.">
+<meta property="og:title" content="Ustamı Yolla · Evine belgeli usta">
+<meta property="og:description" content="Kimliği ve adli sicili kontrol edilmiş usta. Fiyatı önce sen onayla, 90 gün güvence.">
+<meta property="og:image" content="icon.png">
+<meta name="theme-color" content="#DD5320">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#DD5320;--accent-2:#F27A3E;--soft:#FCEBE3;--ok:#14915F;--ok-soft:#E4F5EC;
+  --fg:#141720;--muted:#6A7180;--line:#E6E8ED;--bg:#FFFFFF;--bg-2:#F5F6F8;--card:#FFFFFF;
+  --shadow:0 20px 60px -20px rgba(20,23,32,.25);
+  --r:18px;
+}
+@media (prefers-color-scheme:dark){:root{
+  --fg:#F2F3F5;--muted:#A3A9B6;--line:#2A2E38;--bg:#0E1015;--bg-2:#151821;--card:#1A1D27;--soft:#3A2016;--ok-soft:#163327;
+  --shadow:0 20px 60px -20px rgba(0,0,0,.7);
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 "Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .2s}
+nav.top.scrolled{border-bottom-color:var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:16px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.4px}
+.brand img{width:36px;height:36px;border-radius:10px}
+.brand b{color:var(--accent)}
+nav.top .links{display:flex;gap:22px;margin-left:auto;font-size:15px;font-weight:600}
+nav.top .links a{text-decoration:none;color:var(--muted)}
+nav.top .links a:hover{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:13px 20px;border-radius:14px;border:0;cursor:pointer;font:inherit;font-weight:700;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -10px var(--accent)}
+.btn.ghost{background:var(--card);color:var(--fg);border:1.5px solid var(--line)}
+.btn.ghost:hover{box-shadow:none;border-color:var(--accent)}
+.btn.sm{padding:9px 14px;font-size:14px;border-radius:11px}
+@media (max-width:760px){nav.top .links{display:none}nav.top .btn{margin-left:auto}}
+
+/* hero */
+.hero{position:relative;padding:56px 0 40px;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-30% -10% auto auto;width:720px;height:720px;background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 22%,transparent),transparent);z-index:-1}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{padding-top:32px}}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--soft);color:var(--accent);font-weight:700;font-size:13.5px;padding:7px 12px;border-radius:999px}
+.hero h1{font-size:clamp(36px,6.2vw,64px);line-height:1.04;letter-spacing:-1.6px;margin:18px 0 18px;font-weight:800}
+.hero h1 .hl{color:var(--accent);position:relative;white-space:nowrap}
+.hero h1 .hl:after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.16em;background:var(--accent);opacity:.18;border-radius:6px}
+.hero p.lead{font-size:clamp(17px,2vw,19px);color:var(--muted);max-width:560px;margin:0 0 26px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.store{display:inline-flex;align-items:center;gap:10px;background:var(--fg);color:var(--bg);text-decoration:none;padding:10px 16px;border-radius:14px;min-width:178px;transition:transform .15s}
+.store:hover{transform:translateY(-2px)}
+.store small{display:block;font-size:11px;opacity:.75;line-height:1}
+.store b{display:block;font-size:16px;line-height:1.25}
+.store.soon{opacity:.55;pointer-events:none}
+.store svg{width:26px;height:26px}
+.trust{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;color:var(--muted);font-size:14px;font-weight:600}
+.trust span{display:inline-flex;align-items:center;gap:7px}
+.trust svg{color:var(--ok);width:18px;height:18px}
+
+/* phone */
+.phone-col{display:flex;justify-content:center;position:relative}
+.phone{width:300px;height:620px;border-radius:46px;background:#0b0c10;padding:12px;box-shadow:var(--shadow),inset 0 0 0 2px #2a2c33;position:relative;flex:none}
+.phone:before{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:96px;height:26px;background:#0b0c10;border-radius:20px;z-index:5}
+.screen{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#F5F6F8;color:#141720;font-size:12px;line-height:1.35}
+.scr{position:absolute;inset:0;padding:46px 14px 14px;display:flex;flex-direction:column;gap:9px;opacity:0;transform:translateX(24px) scale(.98);transition:opacity .45s,transform .45s;pointer-events:none}
+.scr.on{opacity:1;transform:none;pointer-events:auto}
+.float{position:absolute;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:10px 13px;box-shadow:var(--shadow);font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
+.float svg{width:18px;height:18px;color:var(--accent)}
+.f1{left:-6px;top:90px}.f2{right:-4px;top:300px;animation-delay:-2s}.f3{left:4px;bottom:70px;animation-delay:-3.5s}
+@media (max-width:420px){.float{display:none}}
+@keyframes bob{50%{transform:translateY(-10px)}}
+/* app ui inside phone */
+.a-head{display:flex;align-items:center;justify-content:space-between}
+.a-brand{font-weight:800;font-size:16px;letter-spacing:-.3px}.a-brand b{color:#DD5320}
+.a-chip{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid #E6E8ED;border-radius:999px;padding:4px 9px;font-weight:700;font-size:11px}
+.a-search{background:#fff;border:1px solid #E6E8ED;border-radius:12px;padding:9px 11px;color:#6A7180;display:flex;gap:6px;align-items:center}
+.a-h{font-weight:800;font-size:13.5px;margin-top:2px}
+.a-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.a-cat{background:#fff;border:1px solid #E6E8ED;border-radius:12px;padding:9px 4px;text-align:center;font-weight:600;font-size:10.5px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.a-cat i{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#FCEBE3;color:#DD5320}
+.a-cat svg{width:16px;height:16px}
+.a-card{background:#fff;border:1px solid #E6E8ED;border-radius:14px;padding:11px;display:flex;flex-direction:column;gap:6px}
+.a-row{display:flex;align-items:center;gap:9px}
+.a-av{width:38px;height:38px;border-radius:50%;background:#FCEBE3;color:#DD5320;display:grid;place-items:center;font-weight:800;flex:none}
+.a-av.lg{width:62px;height:62px;font-size:20px}
+.a-tag{display:inline-flex;align-items:center;gap:3px;background:#F5F6F8;border-radius:999px;padding:3px 7px;font-weight:700;font-size:10px;color:#6A7180}
+.a-tag.ok{background:#E4F5EC;color:#14915F}.a-tag.ac{background:#FCEBE3;color:#DD5320}
+.a-tag svg{width:11px;height:11px}
+.a-muted{color:#6A7180;font-size:11px}
+.a-stars{color:#F5A524;letter-spacing:1px;font-size:12px}
+.a-btn{background:#DD5320;color:#fff;border-radius:12px;padding:11px;text-align:center;font-weight:800;margin-top:auto}
+.a-btn.gh{background:#fff;color:#141720;border:1px solid #E6E8ED}
+.a-sum{display:flex;justify-content:space-between;font-size:11.5px}
+.a-sum.t{font-weight:800;font-size:13px;border-top:1px solid #E6E8ED;padding-top:7px}
+.a-pay{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.a-pay div{border:1.5px solid #E6E8ED;border-radius:11px;padding:8px;font-weight:700;font-size:11px;background:#fff}
+.a-pay .on{border-color:#DD5320;background:#FCEBE3}
+.a-map{height:220px;border-radius:14px;position:relative;overflow:hidden;background:#E9EEF2;background-image:linear-gradient(#dfe5ea 1px,transparent 1px),linear-gradient(90deg,#dfe5ea 1px,transparent 1px);background-size:22px 22px}
+.a-map .road{position:absolute;background:#fff;box-shadow:0 0 0 1px #d6dde3}
+.a-map .r1{left:-10%;right:-10%;top:58%;height:14px;transform:rotate(-12deg)}
+.a-map .r2{top:-10%;bottom:-10%;left:38%;width:12px;transform:rotate(8deg)}
+.a-pin{position:absolute;width:26px;height:26px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#DD5320;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.a-pin.u{background:#1E6FD9;animation:drive 6s ease-in-out infinite alternate}
+@keyframes drive{from{left:12%;top:20%}to{left:52%;top:46%}}
+.a-eta{background:#DD5320;color:#fff;border-radius:14px;padding:11px;display:flex;align-items:center;gap:9px}
+.a-eta b{font-size:14px;display:block}
+.a-step{display:flex;gap:8px;align-items:flex-start;font-size:11px}
+.a-step i{width:16px;height:16px;border-radius:50%;background:#DD5320;flex:none;display:grid;place-items:center;color:#fff;font-size:9px;font-style:normal}
+.a-step.off i{background:#E6E8ED}
+.a-photos{display:flex;gap:6px}.a-photos div{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,#c9b8ad,#8c7a6e)}
+.a-photos div:nth-child(2){background:linear-gradient(135deg,#a9b6c2,#66778a)}
+.a-photos .add{background:#fff;border:1.5px dashed #E6E8ED;display:grid;place-items:center;color:#6A7180}
+.a-input{background:#fff;border:1px solid #E6E8ED;border-radius:11px;padding:9px;min-height:54px}
+.a-times{display:flex;gap:6px}.a-times span{flex:1;text-align:center;border:1.5px solid #E6E8ED;border-radius:10px;padding:7px 2px;font-weight:700;font-size:10.5px;background:#fff}.a-times .on{border-color:#DD5320;background:#FCEBE3}
+.a-big{font-size:34px;font-weight:800;text-align:center;letter-spacing:4px;color:#F5A524}
+
+/* sections */
+section{padding:84px 0}
+section.alt{background:var(--bg-2)}
+.kicker{color:var(--accent);font-weight:800;font-size:13.5px;letter-spacing:1.2px;text-transform:uppercase}
+h2{font-size:clamp(28px,4.2vw,44px);line-height:1.1;letter-spacing:-1px;margin:10px 0 14px;font-weight:800}
+.sub{color:var(--muted);font-size:18px;max-width:640px;margin:0 0 36px}
+.center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
+
+/* how it works */
+.how{display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:center}
+@media (max-width:900px){.how{grid-template-columns:1fr}.how .phone-col{order:-1}}
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:16px;align-items:flex-start;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:16px 18px;cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s;color:var(--fg);font:inherit;width:100%}
+.step:hover{transform:translateX(4px)}
+.step.on{border-color:var(--accent);box-shadow:0 14px 34px -18px var(--accent)}
+.step .n{width:38px;height:38px;border-radius:12px;background:var(--soft);color:var(--accent);display:grid;place-items:center;font-weight:800;flex:none;transition:background .2s,color .2s}
+.step.on .n{background:var(--accent);color:#fff}
+.step h3{margin:0 0 3px;font-size:17px}
+.step p{margin:0;color:var(--muted);font-size:14.5px}
+.step .bar{height:3px;background:var(--line);border-radius:3px;margin-top:10px;overflow:hidden;display:none}
+.step.on .bar{display:block}
+.step .bar i{display:block;height:100%;width:0;background:var(--accent)}
+.step.on .bar i{animation:fill 5s linear forwards}
+@keyframes fill{to{width:100%}}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.cat{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:18px;cursor:pointer;transition:transform .2s,border-color .2s;text-align:left;color:var(--fg);font:inherit}
+.cat:hover,.cat.on{transform:translateY(-4px);border-color:var(--accent)}
+.cat .ic{width:46px;height:46px;border-radius:14px;background:var(--soft);color:var(--accent);display:grid;place-items:center;margin-bottom:12px}
+.cat .ic svg{width:24px;height:24px}
+.cat b{display:block;font-size:16px}
+.cat span{color:var(--muted);font-size:13.5px}
+.catinfo{margin-top:16px;background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:18px 20px;display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;min-height:72px}
+.catinfo h4{margin:0;font-size:17px;flex-basis:100%}
+.catinfo .svc{display:flex;gap:8px;align-items:center;font-size:14.5px}
+.catinfo .svc b{color:var(--accent)}
+
+/* features */
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.feat{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:22px;transition:transform .2s}
+.feat:hover{transform:translateY(-4px)}
+.feat .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--soft);color:var(--accent);margin-bottom:14px}
+.feat .ic svg{width:22px;height:22px}
+.feat h3{margin:0 0 6px;font-size:18px}
+.feat p{margin:0;color:var(--muted);font-size:15px}
+
+/* calculators */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:860px){.calc{grid-template-columns:1fr}}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:24px}
+.box h3{margin:0 0 4px;font-size:20px}
+.box .muted{color:var(--muted);font-size:14.5px;margin:0 0 18px}
+.range{margin:14px 0}
+.range label{display:flex;justify-content:space-between;font-weight:700;font-size:15px;margin-bottom:8px}
+.range label b{color:var(--accent);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+.lines{border-top:1px dashed var(--line);margin-top:14px;padding-top:12px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.lines div{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}
+.lines div span:last-child,.lines div b{white-space:nowrap}
+.lines .neg{color:var(--muted)}
+.lines .tot{font-weight:800;font-size:20px;border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
+.lines .tot b{color:var(--accent)}
+.toggle{display:inline-flex;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px}
+.toggle button{border:0;background:transparent;color:var(--muted);font:inherit;font-weight:700;font-size:14px;padding:7px 12px;border-radius:9px;cursor:pointer}
+.toggle button.on{background:var(--card);color:var(--fg);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+
+/* usta band */
+.band{background:linear-gradient(135deg,#DD5320,#F27A3E);color:#fff;border-radius:28px;padding:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;position:relative;overflow:hidden}
+.band:after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.1)}
+@media (max-width:860px){.band{grid-template-columns:1fr;padding:28px}}
+.band h2{color:#fff;margin-top:0}
+.band ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.band li{display:flex;gap:10px;align-items:flex-start;font-size:16px}
+.band li svg{width:22px;height:22px;flex:none;margin-top:1px}
+.band .btn{background:#fff;color:#DD5320}
+
+/* faq */
+.faq{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+details{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:0 20px;transition:border-color .2s}
+details[open]{border-color:var(--accent)}
+summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:700;font-size:16.5px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary svg{transition:transform .2s;color:var(--accent)}
+details[open] summary svg{transform:rotate(45deg)}
+details p{margin:0 0 18px;color:var(--muted)}
+
+/* download */
+.dl{background:var(--fg);color:var(--bg);border-radius:28px;padding:44px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.dl h2{margin:0 0 6px;color:var(--bg)}
+.dl p{margin:0;opacity:.75}
+.dl .store{background:var(--bg);color:var(--fg)}
+
+footer{border-top:1px solid var(--line);padding:36px 0 44px;color:var(--muted);font-size:14px}
+footer .cols{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+footer nav{display:grid;grid-template-columns:repeat(2,minmax(160px,auto));gap:8px 28px}
+footer a{text-decoration:none}footer a:hover{color:var(--accent)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+.modal{position:fixed;inset:0;background:rgba(10,12,16,.55);display:none;align-items:flex-end;justify-content:center;z-index:100;padding:16px}
+.modal.on{display:flex}
+@media (min-width:640px){.modal{align-items:center}}
+.sheet{background:var(--card);color:var(--fg);border-radius:24px;max-width:440px;width:100%;padding:24px;box-shadow:var(--shadow);animation:up .25s ease}
+@keyframes up{from{transform:translateY(30px);opacity:0}}
+.sheet h3{margin:0 0 4px;font-size:21px}
+.sheet ol{margin:14px 0 18px;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+.sheet li b{color:var(--accent)}
+.sheet .row{display:flex;gap:10px;flex-wrap:wrap}
+.share{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--bg-2);vertical-align:-5px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7s-6 6.6-6 11.3a6 6 0 0 0 12 0c0-4.7-6-11.3-6-11.3z"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.3 1.2 1.3 2.8 2.5 2.8z"/></symbol>
+    <symbol id="i-sat" viewBox="0 0 24 24"><path d="M4 10a7.3 7.3 0 0 0 10 10"/><path d="m9 15 3-3"/><path d="M17 13a6 6 0 0 0-6-6"/><path d="M21 13A10 10 0 0 0 11 3"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7A2.5 2.5 0 1 1 19.5 12H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+    <symbol id="i-brush" viewBox="0 0 24 24"><path d="m14.6 2.6 6.8 6.8-9 9-6.8-6.8z"/><path d="M5.6 11.6 2 21l9.4-3.6"/></symbol>
+    <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.4 8.4a2.1 2.1 0 1 1-3-3L12 9"/><path d="M17.6 15 22 10.6 14.8 3.4 10.4 7.8z"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></symbol>
+    <symbol id="i-wash" viewBox="0 0 24 24"><rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M7 6h.01M11 6h.01"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z"/><path d="M16 8H8M16 12H8M13 16H8"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-nav" viewBox="0 0 24 24"><path d="m3 11 19-9-9 19-2-8z"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></symbol>
+    <symbol id="i-android" viewBox="0 0 24 24"><path d="M6 9h12v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM4 10v5M20 10v5M9 19v3M15 19v3M7.5 6.5 6 4.5M16.5 6.5 18 4.5"/><path d="M6 9a6 6 0 0 1 12 0"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 6.5c0-2 1.5-3.5 3.5-3.5 0 2-1.5 3.5-3.5 3.5zM16.5 21c-1.2 0-1.8-.7-3.3-.7S11 21 9.8 21C7.5 21 5 17.4 5 13.7 5 10.3 7.2 8.5 9.2 8.5c1.3 0 2.2.8 3 .8.8 0 1.9-.9 3.4-.9.8 0 2.9.3 3.9 2.4-2.4 1.2-2.1 4.6.4 5.6-.7 2.1-2 4.6-3.4 4.6z"/></symbol>
+  </defs>
+</svg>
+
+<nav class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="icon.png" alt="">Ustamı <b>Yolla</b></a>
+    <div class="links">
+      <a href="#nasil">Nasıl çalışır</a>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#fiyat">Fiyatlar</a>
+      <a href="#usta">Usta ol</a>
+      <a href="#sss">SSS</a>
+    </div>
+    <a class="btn sm" href="#indir">Uygulamayı indir</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill"><svg class="i"><use href="#i-pin"/></svg> İstanbul'un 39 ilçesinde</span>
+      <h1>Evine belgeli usta,<br>fiyatı <span class="hl">önce sen</span> onayla.</h1>
+      <p class="lead">Elektrikçi, tesisatçı, kombici, boyacı… Kimliği ve adli sicili kontrol edilmiş ustayı birkaç dokunuşla çağır. Usta keşiften sonra fiyatı yazar, sen onaylamadan iş başlamaz.</p>
+      <div class="cta" id="indir-hero">
+        <a class="store" data-apk href="#indir"><svg class="i"><use href="#i-android"/></svg><span><small>Android için</small><b>APK indir</b></span></a>
+        <a class="store" href="#iphone" data-ios><svg class="i"><use href="#i-apple"/></svg><span><small>iPhone için</small><b>Hemen kullan</b></span></a>
+      </div>
+      <div class="trust">
+        <span><svg class="i"><use href="#i-shield"/></svg>Kimlik + adli sicil kontrolü</span>
+        <span><svg class="i"><use href="#i-check"/></svg>Sürpriz ücret yok</span>
+        <span><svg class="i"><use href="#i-badge"/></svg>90 gün güvence</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="phone" aria-hidden="true">
+        <div class="screen" id="heroScreen"></div>
+      </div>
+      <div class="float f1"><svg class="i"><use href="#i-shield"/></svg>Adli sicil kontrol edildi</div>
+      <div class="float f2"><svg class="i"><use href="#i-nav"/></svg>Usta 12 dk uzaklıkta</div>
+      <div class="float f3"><svg class="i"><use href="#i-star"/></svg>4,9 · 212 iş</div>
+    </div>
+  </div>
+</header>
+
+<section id="nasil" class="alt">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Nasıl çalışır</span>
+      <h2>Dört adımda kapında.</h2>
+      <p class="sub">Adımlara dokun, uygulamada ne gördüğünü yanda canlı izle.</p>
+    </div>
+    <div class="how">
+      <div class="steps" id="steps">
+        <button class="step on" data-s="0"><span class="n">1</span><span><h3>Ustanı seç</h3><p>İhtiyacını seç; puanlara, yorumlara, keşif ücretine ve rozetlere bakıp ustanı bul.</p><span class="bar"><i></i></span></span></button>
+        <button class="step" data-s="1"><span class="n">2</span><span><h3>Sorununu anlat</h3><p>Birkaç cümle yaz, istersen fotoğraf ekle, saatini seç. Usta kabul edince keşif ücreti kartından alınır.</p><span class="bar"><i></i></span></span></button>
+        <button class="step" data-s="2"><span class="n">3</span><span><h3>Usta yola çıksın</h3><p>Ustanın yaklaştığını haritada gör, uygulamadan mesajlaş. Numaran ve adresin sadece ona, iş süresince görünür.</p><span class="bar"><i></i></span></span></button>
+        <button class="step" data-s="3"><span class="n">4</span><span><h3>Fiyatı onayla, öde</h3><p>Usta keşiften sonra işçilik ve malzemeyi kalem kalem yazar. Sen onaylarsan başlar; sadece onayladığın tutarı ödersin, her ödeme kayıtlı.</p><span class="bar"><i></i></span></span></button>
+      </div>
+      <div class="phone-col">
+        <div class="phone" aria-hidden="true"><div class="screen" id="howScreen"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hizmetler">
+  <div class="wrap">
+    <div class="reveal center">
+      <span class="kicker">Hizmetler</span>
+      <h2>Evdeki her iş için bir usta.</h2>
+      <p class="sub">Bir hizmete dokun, örnek işleri ve başlangıç fiyatlarını gör. Kesin fiyatı usta keşiften sonra uygulamaya yazar.</p>
+    </div>
+    <div class="cats reveal" id="cats"></div>
+    <div class="catinfo reveal" id="catinfo"></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="reveal center">
+      <span class="kicker">Neden Ustamı Yolla</span>
+      <h2>Güven, şeffaflık, güvence.</h2>
+      <p class="sub">Evine gelen kişiyi bil, ödediğin parayı bil, sorun çıkarsa arkanda biri olsun.</p>
+    </div>
+    <div class="feats">
+      <div class="feat reveal"><div class="ic"><svg class="i"><use href="#i-shield"/></svg></div><h3>Kontrol edilmiş ustalar</h3><p>Her ustanın kimliği ve adli sicil kaydı kontrol edilir. Mesleki belgesi ya da yaptığı işler incelenmeden onay verilmez.</p></div>
+      <div class="feat reveal"><div class="ic"><svg class="i"><use href="#i-receipt"/></svg></div><h3>Kalem kalem fiyat</h3><p>İşçilik ve malzeme ayrı ayrı yazılır. Malzeme fişi uygulamada sana da gösterilir.</p></div>
+      <div class="feat reveal"><div class="ic"><svg class="i"><use href="#i-badge"/></svg></div><h3>90 gün güvence</h3><p>Uygulamadan yapılan işte sorun çıkarsa 90 gün içinde garanti talebi aç, biz ustayla birlikte çözelim.</p></div>
+      <div class="feat reveal"><div class="ic"><svg class="i"><use href="#i-star"/></svg></div><h3>Gerçek yorumlar</h3><p>Puan ve yorumu sadece o ustayla uygulamadan iş yaptırmış müşteriler verebilir.</p></div>
+      <div class="feat reveal"><div class="ic"><svg class="i"><use href="#i-card"/></svg></div><h3>Güvenli ödeme</h3><p>Her ödeme uygulamada kayıtlı. Kart bilgilerin lisanslı ödeme kuruluşunda işlenir, bizde saklanmaz.</p></div>
+      <div class="feat reveal"><div class="ic"><svg class="i"><use href="#i-chat"/></svg></div><h3>Gizliliğin korunur</h3><p>Adresin ve numaran sadece işi kabul eden ustaya görünür, iş bitince gizlenir. Mesajlaşma uygulama içinde.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="fiyat">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Şeffaf fiyat</span>
+      <h2>Ne ödeyeceğini baştan bil.</h2>
+      <p class="sub">Kaydırıcıları oynat: müşteri ne öder, usta ne kazanır, hepsi açık.</p>
+    </div>
+    <div class="calc">
+      <div class="box reveal">
+        <h3>Müşteri olarak</h3>
+        <p class="muted">Keşif ücreti usta kabul edince alınır. İş bedelini keşiften sonra görürsün, onaylamazsan sadece keşif ödenir.</p>
+        <div class="range"><label>Keşif ücreti <b id="cFeeV"></b></label><input type="range" id="cFee" min="0" max="1000" step="50" value="400"></div>
+        <div class="range"><label>İşçilik + malzeme <b id="cWorkV"></b></label><input type="range" id="cWork" min="0" max="10000" step="100" value="1500"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <div class="toggle" id="cPromo"><button class="on" data-v="0">İndirimsiz</button><button data-v="1">İlk iş indirimi</button></div>
+          <div class="toggle" id="cPay"><button class="on" data-v="card">Kartla</button></div>
+        </div>
+        <div class="lines" id="cLines"></div>
+      </div>
+      <div class="box reveal">
+        <h3>Usta olarak</h3>
+        <p class="muted">Lansman döneminde hiç komisyon yok. Sonrasında sadece keşif ücretinden %25; işçilik ve malzemenin tamamı senin. Aylık Usta Pro ile hiç komisyon ödemezsin.</p>
+        <div class="range"><label>Keşif ücretin <b id="uFeeV"></b></label><input type="range" id="uFee" min="0" max="1000" step="50" value="400"></div>
+        <div class="range"><label>İşçilik <b id="uLabV"></b></label><input type="range" id="uLab" min="0" max="10000" step="100" value="1000"></div>
+        <div class="range"><label>Malzeme <b id="uMatV"></b></label><input type="range" id="uMat" min="0" max="10000" step="100" value="500"></div>
+        <div class="lines" id="uLines"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="usta" class="alt">
+  <div class="wrap">
+    <div class="band reveal">
+      <div>
+        <span class="kicker" style="color:#fff;opacity:.85">Ustalar için</span>
+        <h2>İşini büyüt, müşteri aramakla uğraşma.</h2>
+        <ul>
+          <li><svg class="i"><use href="#i-wallet"/></svg>Keşif ücretini kendin belirle. Kartlı işlerin parası her Cuma hesabında.</li>
+          <li><svg class="i"><use href="#i-receipt"/></svg>Lansman döneminde komisyon yok; sonra sadece keşif ücretinden %25. İşçilik ve malzemenin tamamı senin.</li>
+          <li><svg class="i"><use href="#i-receipt"/></svg>Her ay 5 iş bitir, ücretsiz çark çevir: komisyonsuz ay, komisyonsuz işler, öne çıkma.</li>
+          <li><svg class="i"><use href="#i-clock"/></svg>Çalışma saatlerini ve ilçelerini sen seç, müsaitliğini tek dokunuşla aç kapat.</li>
+          <li><svg class="i"><use href="#i-badge"/></svg>Uygulamadan iş yaptıkça "Güvenilir usta" rozeti al, listede üste çık.</li>
+          <li><svg class="i"><use href="#i-gift"/></svg>Usta arkadaşını davet et, ilk işini bitirince ödül kazan.</li>
+        </ul>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;position:relative;z-index:1">
+        <p style="margin:0;font-size:17px;opacity:.92">Başvuru için gerekenler: kimlik, e-Devlet'ten adli sicil kaydı ve ustalık belgen. Belgen yoksa yaptığın işlerden 3 fotoğraf yeterli.</p>
+        <a class="btn" href="#indir"><svg class="i"><use href="#i-android"/></svg>Uygulamayı indir, başvur</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sss">
+  <div class="wrap">
+    <div class="reveal center">
+      <span class="kicker">Sık sorulanlar</span>
+      <h2>Aklındaki sorular.</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Keşif ücreti ne zaman alınır? <svg class="i"><use href="#i-plus"/></svg></summary><p>Usta talebini kabul ettiği anda kartından alınır. Usta kabul etmezse ya da sen usta yola çıkmadan iptal edersen hiçbir ücret ödemezsin, alınmışsa iade edilir.</p></details>
+      <details><summary>Fiyatı beğenmezsem ne olur? <svg class="i"><use href="#i-plus"/></svg></summary><p>Usta keşiften sonra fiyatı uygulamaya yazar. Onaylamazsan iş yapılmaz, sadece keşif ücreti ödenmiş olur.</p></details>
+      <details><summary>Ustalar nasıl kontrol ediliyor? <svg class="i"><use href="#i-plus"/></svg></summary><p>Her ustanın kimliğini ve e-Devlet barkodlu adli sicil kaydını kontrol ediyoruz. Mesleki belgesi olanların belgesini, olmayanların yaptığı işlerin fotoğraflarını inceledikten sonra onay veriyoruz.</p></details>
+      <details><summary>Ödemeyi nasıl yaparım? <svg class="i"><use href="#i-plus"/></svg></summary><p>Lansman döneminde keşif ücretini ve onayladığın iş bedelini doğrudan ustaya ödersin, tutarlar uygulamada kayıtlı kalır. Komisyon dönemi başlayınca bütün ödemeler uygulamadan kartla yapılır. Sadece uygulamada onayladığın tutarı öde.</p></details>
+      <details><summary>İşten sonra sorun çıkarsa? <svg class="i"><use href="#i-plus"/></svg></summary><p>Uygulamadan tamamlanan işlerde 90 gün içinde uygulamadan garanti talebi açabilirsin. Ekibimiz ustayla birlikte sorunu çözer.</p></details>
+      <details><summary>Hangi bölgelerde hizmet veriyorsunuz? <svg class="i"><use href="#i-plus"/></svg></summary><p>İstanbul'un 39 ilçesinin tamamında. Uygulamada ilçeni seçince oraya giden ustaları görürsün.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="indir" style="padding-top:20px">
+  <div class="wrap">
+    <div class="dl reveal">
+      <div>
+        <h2>Ustanı bugün çağır.</h2>
+        <p>Android için uygulamayı indir, iPhone’da tarayıcıdan hemen kullan. App Store sürümü yolda.</p>
+      </div>
+      <div class="cta">
+        <a class="store" data-apk href="#"><svg class="i"><use href="#i-android"/></svg><span><small>Android için</small><b>APK indir</b></span></a>
+        <a class="store" href="#iphone" data-ios><svg class="i"><use href="#i-apple"/></svg><span><small>iPhone için</small><b>Hemen kullan</b></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="iosModal" role="dialog" aria-modal="true" aria-labelledby="iosT">
+  <div class="sheet">
+    <h3 id="iosT">iPhone’da Ustamı Yolla</h3>
+    <p class="muted" style="color:var(--muted);margin:0">Kurulum gerekmez, uygulama gibi ana ekranına eklenir.</p>
+    <ol>
+      <li><b>Safari</b> ile aşağıdaki düğmeye dokunup uygulamayı aç.</li>
+      <li>Alttaki <span class="share"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg></span> <b>Paylaş</b> simgesine dokun.</li>
+      <li><b>Ana Ekrana Ekle</b>’yi seç, sonra <b>Ekle</b>.</li>
+      <li>Ana ekrandaki turuncu <b>Ustamı Yolla</b> simgesinden aç.</li>
+    </ol>
+    <div class="row">
+      <a class="btn" href="https://zafer234.github.io/ustamiyolla-web/uygulama/" target="_blank" rel="noopener">Uygulamayı aç</a>
+      <button class="btn ghost" type="button" data-close>Kapat</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap cols">
+    <div style="max-width:340px">
+      <a class="brand" href="#"><img src="icon.png" alt="">Ustamı <b>Yolla</b></a>
+      <p>Evine belgeli usta, fiyatı önce sen onayla. Ödemeler lisanslı ödeme kuruluşu aracılığıyla alınır.</p>
+      <p>© 2026 Ustamı Yolla</p>
+    </div>
+    <nav>
+      <a href="yasal/hakkimizda.html">Hakkımızda</a>
+      <a href="yasal/iletisim.html">İletişim</a>
+      <a href="yasal/mesafeli.html">Mesafeli Hizmet Sözleşmesi</a>
+      <a href="yasal/onbilgi.html">Ön Bilgilendirme Formu</a>
+      <a href="yasal/iptal.html">İptal ve İade Koşulları</a>
+      <a href="yasal/kvkk.html">KVKK Aydınlatma Metni</a>
+      <a href="yasal/gizlilik.html">Gizlilik Politikası</a>
+      <a href="yasal/kullanim.html">Kullanım Koşulları</a>
+      <a href="yasal/usta.html">Usta Hizmet Sözleşmesi</a>
+      <a href="yasal/hesap-silme.html">Hesap silme</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Android indirme bağlantısı (yeni APK çıktıkça bu satır güncellenir)
+const APK_URL = 'https://expo.dev/artifacts/eas/6JbqRxqV3c3vM7CJoZSsUhLBgoEbTd1ArSsz4lQWLGE.apk';
+document.querySelectorAll('[data-apk]').forEach((a) => { a.href = APK_URL; a.rel = 'noopener'; });
+
+const ic = (n) => `<svg class="i"><use href="#i-${n}"/></svg>`;
+const tl = (n) => (Math.round(n * 100) / 100).toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' ₺';
+
+// ---------- Uygulama ekranları (telefon içinde) ----------
+const CATS = [
+  ['zap', 'Elektrik', 'Priz, sigorta, avize', [['Priz / anahtar değişimi', 250], ['Avize montajı', 400], ['Sigorta kutusu yenileme', 1800]]],
+  ['drop', 'Su Tesisatı', 'Musluk, gider, kaçak', [['Batarya değişimi', 450], ['Gider açma', 600], ['Su kaçağı tespiti', 900]]],
+  ['flame', 'Doğalgaz & Kombi', 'Bakım, arıza, montaj', [['Kombi bakımı', 1100], ['Petek temizliği', 1500], ['Arıza onarımı', 800]]],
+  ['sat', 'Anten & Uydu', 'Kurulum, ayar', [['Uydu ayarı', 400], ['Çanak montajı', 900]]],
+  ['wind', 'Klima', 'Montaj, bakım, gaz', [['Klima bakımı', 700], ['Klima montajı', 1800]]],
+  ['brush', 'Boya Badana', 'Oda, daire, tavan', [['Tek oda boya', 3500], ['Tavan boya', 1500]]],
+  ['hammer', 'Marangoz', 'Kapı, dolap, mobilya', [['Kapı tamiri', 600], ['Mobilya montajı', 800]]],
+  ['key', 'Çilingir', 'Kapı açma, kilit', [['Kapı açma', 500], ['Kilit değişimi', 900]]],
+  ['wash', 'Beyaz Eşya', 'Çamaşır, bulaşık, buzdolabı', [['Arıza tespiti', 350], ['Pompa değişimi', 1100]]],
+];
+const SCREENS = [
+  // 0: ana sayfa
+  `<div class="a-head"><span class="a-brand">Ustamı <b>Yolla</b></span><span class="a-chip">${ic('pin')} Kadıköy</span></div>
+   <div class="a-search">${ic('search')} Ne yaptırmak istiyorsun?</div>
+   <div class="a-h">Hangi ustaya ihtiyacın var?</div>
+   <div class="a-grid">${CATS.map((c) => `<div class="a-cat"><i>${ic(c[0])}</i>${c[1]}</div>`).join('')}</div>
+   <div class="a-h">Kadıköy'de en iyi puanlılar</div>
+   <div class="a-card"><div class="a-row"><span class="a-av">MY</span><div style="flex:1"><b>Mehmet Y.</b> <span class="a-tag ok">${ic('badge')} Güvenilir</span><div class="a-muted"><span class="a-stars">★★★★★</span> 4,9 · 212 iş</div></div></div>
+   <div class="a-row" style="justify-content:space-between"><span class="a-muted">Keşif ücreti <b style="color:#141720">400 ₺</b></span><span class="a-tag ac">Profili gör</span></div></div>`,
+  // 1: usta profili
+  `<div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px"><span class="a-av lg">MY</span><b style="font-size:15px">Mehmet Yılmaz</b><span class="a-muted">Elektrik ustası · Kadıköy</span>
+   <div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center"><span class="a-tag ok">${ic('check')} Kimlik doğrulandı</span><span class="a-tag ok">${ic('shield')} Adli sicil kontrol edildi</span><span class="a-tag ok">Ustalık belgesi</span></div></div>
+   <div class="a-card" style="flex-direction:row;justify-content:space-around;text-align:center"><div><b>4,9</b><div class="a-muted">puan</div></div><div><b>212</b><div class="a-muted">iş</div></div><div><b>14 yıl</b><div class="a-muted">deneyim</div></div></div>
+   <div class="a-card"><b>Yorumlar</b><div class="a-muted"><span class="a-stars">★★★★★</span> Ayşe K. · Söylediği saatte geldi, fiyatı baştan söyledi.</div><div class="a-muted"><span class="a-stars">★★★★★</span> Emre T. · Arızayı hemen buldu, temiz çalıştı.</div></div>
+   <div class="a-card"><div class="a-sum"><span>Keşif ücreti</span><b>400 ₺</b></div><div class="a-sum"><span>Çalışma saatleri</span><span>09:00 – 19:00</span></div></div>
+   <div class="a-btn">Usta çağır</div>`,
+  // 2: talep
+  `<b style="font-size:15px">Usta çağır</b>
+   <span class="a-muted">Sorun ne?</span>
+   <div class="a-input">Salondaki prizlerin hepsi çalışmıyor, sigorta atıyor.</div>
+   <div class="a-photos"><div></div><div></div><div class="add">${ic('plus')}</div></div>
+   <span class="a-muted">Ne zaman?</span>
+   <div class="a-times"><span class="on">Hemen<br><small>~45 dk</small></span><span>Bugün<br><small>16:00</small></span><span>Yarın<br><small>10:00</small></span></div>
+   <div class="a-card"><div class="a-sum"><span>Keşif ücreti</span><b>400 ₺</b></div><div class="a-sum"><span>İlk iş indirimi</span><b style="color:#14915F">−60 ₺</b></div><div class="a-sum t"><span>Usta kabul edince çekilir</span><span>340 ₺</span></div></div>
+   <div class="a-btn">Talebi gönder</div>`,
+  // 3: usta yolda
+  `<div class="a-eta">${ic('nav')}<div><b>Usta yolda</b><span style="opacity:.85">Konumu 1 dk önce güncellendi</span></div></div>
+   <div class="a-map"><div class="road r1"></div><div class="road r2"></div><div class="a-pin" style="left:62%;top:52%"></div><div class="a-pin u"></div></div>
+   <div class="a-card"><div class="a-row"><span class="a-av">MY</span><div style="flex:1"><b>Mehmet Yılmaz</b><div class="a-muted">Elektrik · 12 dk uzaklıkta</div></div><span class="a-tag ac">${ic('chat')} Mesaj</span></div></div>
+   <div class="a-card" style="gap:7px"><div class="a-step"><i>✓</i>Talep gönderildi</div><div class="a-step"><i>✓</i>Usta kabul etti</div><div class="a-step"><i>•</i><b>Usta yolda</b></div><div class="a-step off"><i></i>Keşif ve fiyat onayı</div></div>`,
+  // 4: fiyat onayı
+  `<b style="font-size:15px">Ustanın fiyatı</b>
+   <span class="a-muted">Mehmet Usta keşfi yaptı. Onaylarsan iş başlar.</span>
+   <div class="a-card"><div class="a-sum"><span>İşçilik</span><b>900 ₺</b></div><div class="a-sum"><span>Sigorta kutusu (malzeme)</span><b>650 ₺</b></div><div class="a-sum"><span>Kablo (malzeme)</span><b>150 ₺</b></div><div class="a-sum t"><span>Ek tutar</span><span>1.700 ₺</span></div></div>
+   <span class="a-muted"><b style="color:#141720">İş bedelini nasıl ödeyeceksin?</b></span>
+   <div class="a-pay"><div class="on">${ic('card')} Kartla<br><span class="a-muted">•••• 0008</span></div></div>
+   <div class="a-card" style="background:#FCEBE3;border-color:#FCEBE3"><span class="a-muted" style="color:#141720">${ic('shield')} Sadece uygulamada onayladığın tutarı öde. 90 gün güvence.</span></div>
+   <div style="display:flex;gap:7px;margin-top:auto"><div class="a-btn gh" style="flex:1">Reddet</div><div class="a-btn" style="flex:2">Onayla, başlasın</div></div>`,
+  // 5: tamamlandı
+  `<div style="text-align:center;margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:6px"><span class="a-av lg" style="background:#E4F5EC;color:#14915F">${ic('check')}</span><b style="font-size:16px">İş tamamlandı</b><span class="a-muted">İş bedeli kartından çekildi</span></div>
+   <div class="a-card"><div class="a-sum"><span>Keşif ücreti</span><span>340 ₺</span></div><div class="a-sum"><span>İş bedeli</span><span>1.700 ₺</span></div><div class="a-sum t"><span>Toplam</span><span>2.040 ₺</span></div></div>
+   <div class="a-card" style="align-items:center"><b>Mehmet Usta'yı puanla</b><div class="a-big">★★★★★</div><div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center"><span class="a-tag ac">Dakikti</span><span class="a-tag ac">Temiz çalıştı</span><span class="a-tag">Fiyatı uygundu</span></div></div>
+   <div class="a-muted" style="text-align:center">${ic('badge')} 90 gün içinde garanti talebi açabilirsin</div>
+   <div class="a-btn">Puanı gönder</div>`,
+];
+function mount(el, list) {
+  el.innerHTML = list.map((h, i) => `<div class="scr${i === 0 ? ' on' : ''}">${h}</div>`).join('');
+  return (i) => el.querySelectorAll('.scr').forEach((s, k) => s.classList.toggle('on', k === i));
+}
+// hero: tüm ekranlar sırayla
+const heroShow = mount(document.getElementById('heroScreen'), SCREENS);
+let hi = 0; setInterval(() => heroShow((hi = (hi + 1) % SCREENS.length)), 3200);
+
+// nasıl çalışır: adım → ekran
+const HOW = [SCREENS[1], SCREENS[2], SCREENS[3], SCREENS[4]];
+const howShow = mount(document.getElementById('howScreen'), HOW);
+const steps = [...document.querySelectorAll('.step')];
+let cur = 0, timer;
+function go(i, user) {
+  cur = i; steps.forEach((s, k) => s.classList.toggle('on', k === i)); howShow(i);
+  steps[i].querySelector('.bar i').style.animation = 'none'; void steps[i].offsetWidth; steps[i].querySelector('.bar i').style.animation = '';
+  clearTimeout(timer); timer = setTimeout(() => go((cur + 1) % steps.length), user ? 9000 : 5000);
+}
+steps.forEach((s, i) => s.addEventListener('click', () => go(i, true)));
+go(0);
+
+// iPhone: ana ekrana ekleme rehberi
+const modal = document.getElementById('iosModal');
+document.querySelectorAll('[data-ios]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); modal.classList.add('on'); }));
+modal.addEventListener('click', (e) => { if (e.target === modal || e.target.closest('[data-close]')) modal.classList.remove('on'); });
+addEventListener('keydown', (e) => { if (e.key === 'Escape') modal.classList.remove('on'); });
+
+// hizmetler
+const catsEl = document.getElementById('cats'), info = document.getElementById('catinfo');
+catsEl.innerHTML = CATS.map((c, i) => `<button class="cat${i === 0 ? ' on' : ''}" data-i="${i}"><div class="ic">${ic(c[0])}</div><b>${c[1]}</b><span>${c[2]}</span></button>`).join('');
+function showCat(i) {
+  catsEl.querySelectorAll('.cat').forEach((b, k) => b.classList.toggle('on', k === i));
+  const c = CATS[i];
+  info.innerHTML = `<h4>${c[1]} · örnek işler</h4>` + c[3].map(([n, p]) => `<span class="svc">${ic('check')} ${n} <b>${tl(p)}’den</b></span>`).join('');
+}
+catsEl.addEventListener('click', (e) => { const b = e.target.closest('.cat'); if (b) showCat(+b.dataset.i); });
+showCat(0);
+
+// hesaplayıcılar
+const $ = (id) => document.getElementById(id);
+const tog = (id, cb) => { const el = $(id); el.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; el.querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b)); cb(b.dataset.v); }); };
+let promo = 0, pay = 'card';
+function calcC() {
+  const fee = +$('cFee').value, work = +$('cWork').value;
+  const disc = promo ? Math.min(150, Math.round(fee * 0.15)) : 0;
+  $('cFeeV').textContent = tl(fee); $('cWorkV').textContent = tl(work);
+  $('cLines').innerHTML = `<div><span>Keşif ücreti (usta kabul edince karttan)</span><span>${tl(fee)}</span></div>` +
+    (disc ? `<div class="neg"><span>İlk iş indirimi</span><span>−${tl(disc)}</span></div>` : '') +
+    `<div><span>İş bedeli (${pay === 'card' ? 'iş bitince karttan' : 'ustaya nakit'})</span><span>${tl(work)}</span></div>` +
+    `<div class="neg"><span>Fiyatı reddedersen ödeyeceğin</span><span>${tl(fee - disc)}</span></div>` +
+    `<div class="tot"><span>Toplam</span><b>${tl(fee - disc + work)}</b></div>`;
+}
+function calcU() {
+  const fee = +$('uFee').value, lab = +$('uLab').value, mat = +$('uMat').value;
+  const vc = Math.round(fee * 0.25), wc = 0;
+  $('uFeeV').textContent = tl(fee); $('uLabV').textContent = tl(lab); $('uMatV').textContent = tl(mat);
+  $('uLines').innerHTML = `<div><span>Müşteriden alınan</span><span>${tl(fee + lab + mat)}</span></div>` +
+    `<div class="neg"><span>Keşif komisyonu (%25, lansmandan sonra)</span><span>−${tl(vc)}</span></div>` +
+    `<div class="neg"><span>İşçilik komisyonu</span><span>0 ₺</span></div>` +
+    `<div class="neg"><span>Malzeme komisyonu</span><span>0 ₺</span></div>` +
+    `<div class="tot"><span>Sana kalan</span><b>${tl(fee + lab + mat - vc - wc)}</b></div>`;
+}
+['cFee', 'cWork'].forEach((id) => $(id).addEventListener('input', calcC));
+['uFee', 'uLab', 'uMat'].forEach((id) => $(id).addEventListener('input', calcU));
+tog('cPromo', (v) => { promo = +v; calcC(); }); tog('cPay', (v) => { pay = v; calcC(); });
+calcC(); calcU();
+
+// görünür olunca beliren bölümler
+const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+const nav = document.getElementById('top');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
+</script>
+</body>
+</html>
